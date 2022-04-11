@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: agora-assignments
+    image: agora-assignments
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package users;
+
+option go_package = "./;userpb";
+
+// UserService defines service to manage users.
+service UserService{
+    rpc GetUserByID(GetUserByIDRequest) returns (User){}
+    rpc GetUsers(GetUsersRequest) returns (GetUsersResponse){}
+}
+
+// GetUserByIDRequest represents GetuserByID's request.
+message GetUserByIDRequest{
+    string id = 1;
+}
+// GetUsersRequest represent Userlisting request
+message GetUsersRequest{
+    int64 page = 1;
+    int64 limit = 2;
+}
+
+
+message GetUsersResponse{
+ repeated User users = 1;
+}
+
+// User represent User Object.
+message User{
+    string id = 1;
+    string title = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string picture = 5;
+}
